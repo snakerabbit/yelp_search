@@ -2,7 +2,14 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ResultsSchema = new Schema({
-  businesses: String,
+  businesses: [{
+    name:String,
+    review_count: Number,
+    rating: Number,
+    location:{
+      display_address:[String]
+    }
+  }],
   total: String
 });
 

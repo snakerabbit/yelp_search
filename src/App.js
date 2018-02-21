@@ -7,13 +7,13 @@ import Summary from './Summary';
 class App extends React.Component {
  constructor(props) {
  super(props);
- this.state = { data: [] };
+
  }
  render() {
    return (
    <div>
    <h2>Search For Your Physical Therapist</h2>
-   <Searchbar/>
+   <Searchbar url='http://localhost:3001/api/results'/>
    <Summary data={DATA}/>
    <Listings data={DATA}/>
    </div>
