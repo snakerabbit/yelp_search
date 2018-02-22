@@ -3,5 +3,5 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(<App url='http://localhost:3001/api/results'/>, document.getElementById('root'));
 registerServiceWorker();

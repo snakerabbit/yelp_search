@@ -3,11 +3,25 @@ import DATA from './data';
 import Searchbar from './Searchbar';
 import Listings from './Listings';
 import Summary from './Summary';
+import axios from 'axios';
 
 class App extends React.Component {
  constructor(props) {
  super(props);
-
+  this.state = {
+    data:[]
+  };
+  this.loadFromServer = this.loadFromServer.bind(this);
+ }
+ loadFromServer(){
+   axios.get(this.props.url).then(res =>{
+     this.setState({
+       data: res.data
+     });
+   });
+ }
+ componentDidMount(){
+   this.loadFromServer();
  }
  render() {
    return (
