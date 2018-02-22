@@ -23,13 +23,11 @@ class Searchbar extends React.Component {
  handleSubmit(e){
    e.preventDefault();
    let searchTerm = this.state.searchTerm;
-   axios.post(this.props.url,{
-    searchTerm: searchTerm
-  })
+   axios.post(this.props.url,searchTerm)
     .then(function(response){
       console.log(response);
     }
-    )
+  )
     .catch(function(error){
       console.log(error);
     });
@@ -39,7 +37,7 @@ class Searchbar extends React.Component {
  }
 
  render() {
-   console.log(this.state.searchTerm);
+   // console.log(this.props.data);
    return (
    <div id='search-bar'>
    <form>
