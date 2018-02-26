@@ -10,7 +10,8 @@ var ResultsSchema = new Schema({
       display_address:[String]
     }
   }],
-  total: String
+  total: String,
+  searchTerm: String
 });
 
 module.exports = mongoose.model('Result', ResultsSchema);

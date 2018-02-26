@@ -58,6 +58,7 @@ router.get('/', function(req,res){
         var result = new Result();
         result.businesses = responses.businesses;
         result.total = responses.total;
+        result.searchTerm = req.body.searchTerm;
         result.save(function(err) {
           res.send(err);
         });
