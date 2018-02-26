@@ -11,22 +11,28 @@ class Listings extends React.Component {
  }
 
  renderListings(){
-   return(
+   const results = Object.values(this.props.results);
+   const lastResults = results[results.length-1];
+   if(lastResults){
+     return(
 
-     this.props.data.businesses.map(biz =>{
-       let location = biz.location;
+       lastResults.businesses.map(biz =>{
+         let location = biz.location;
 
-       return(
-         <li key={biz.name}>
-           <p>Name: {biz.id}</p>
-           <p>Rating: {biz.rating}</p>
-           <p>Review Count: {biz.review_count}</p>
-           <p>Address: {location.display_address[0]}</p>
-           <p>{location.display_address[1]}</p>
-         </li>
-       );
-     })
-   );
+         return(
+           <li key={biz.name}>
+             <p>Name: {biz.name}</p>
+             <p>Rating: {biz.rating}</p>
+             <p>Review Count: {biz.review_count}</p>
+             <p>Address: {location.display_address[0]}</p>
+             <p>{location.display_address[1]}</p>
+             <p>{location.display_address[2]}</p>
+           </li>
+         );
+       })
+     );
+   }
+
  }
  render() {
 
