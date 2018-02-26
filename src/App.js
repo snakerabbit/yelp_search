@@ -10,38 +10,41 @@ class App extends React.Component {
  constructor(props) {
  super(props);
   this.state = {
-    data:[]
+    data:[],
+    location:null
   };
-  this.loadFromServer = this.loadFromServer.bind(this);
+  this.handleSubmit = this.handleSubmit.bind(this);
  }
 
- loadFromServer(){
-   console.log(this.props.url);
-   axios({
-    method: 'get',
-    url: "http://localhost:3001/api/"
-  }).catch(err => console.log(err));
-
-   axios({
-    method: 'get',
-    url: this.props.url,
-  }).then((res) => {
-    this.setState({
-      data: res.data[res.data.length-1]
-    });
-  });
+ handleSubmit(searchTerm){
+   // this.setState({
+   //   location: searchTerm
+   // });
+   //  axios.post(this.props.url,{
+   //   searchTerm: searchTerm
+   // })
+   //   .then((response)=>{
+   //     this.setState({
+   //       data:response.data[response.data.length-1]
+   //     });
+   //   }
+   // )
+   //   .catch(function(error){
+   //     console.log(error);
+   //   });
+   this.props.createResult(searchTerm);
  }
  componentDidMount(){
-   this.loadFromServer();
+   this.props.fetchResults();
  }
  render() {
-   console.log(this.state.data);
    return (
    <div>
    <h2>Search For Your Physical Therapist</h2>
-   <Searchbar url='http://localhost:3001/api/results' data={this.state.data}/>
-   <Summary data={DATA} dat={this.state.data}/>
-   <Listings data={DATA} dat={this.state.data}/>
+   <Searchbar handleSubmit={this.handleSubmit}/>
+   <Summary data={DATA}
+            results={this.props.results}/>
+   <Listings data={DATA} results={this.props.results}/>
    </div>
   );
  }

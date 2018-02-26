@@ -1,5 +1,5 @@
 import React from 'react';
-
+import axios from 'axios';
 
 class Summary extends React.Component {
  constructor(props) {
@@ -11,6 +11,7 @@ class Summary extends React.Component {
     numReviews: this.totalReviews()
   };
  }
+
 
  numberWithRatings(){
    let rated = this.props.data.businesses.map(biz =>{
@@ -44,6 +45,7 @@ class Summary extends React.Component {
 
 
  render() {
+   console.log(this.props.results);
    return (
    <div>
    <h2>Summary: </h2>

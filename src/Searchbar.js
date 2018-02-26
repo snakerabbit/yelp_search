@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import './app.css';
 
 class Searchbar extends React.Component {
@@ -7,7 +7,7 @@ class Searchbar extends React.Component {
    super(props);
    this.state = {
      searchTerm:'',
-     data:[]
+     data:this.props.data
    };
 
    this.handleChange = this.handleChange.bind(this);
@@ -23,21 +23,15 @@ class Searchbar extends React.Component {
  handleSubmit(e){
    e.preventDefault();
    let searchTerm = this.state.searchTerm;
-   axios.post(this.props.url,searchTerm)
-    .then(function(response){
-      console.log(response);
-    }
-  )
-    .catch(function(error){
-      console.log(error);
-    });
+   this.props.handleSubmit(searchTerm);
+
    this.setState({
      searchTerm:''
    });
  }
 
+
  render() {
-   // console.log(this.props.data);
    return (
    <div id='search-bar'>
    <form>
