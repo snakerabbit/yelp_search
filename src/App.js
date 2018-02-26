@@ -10,42 +10,48 @@ class App extends React.Component {
  constructor(props) {
  super(props);
   this.state = {
-    data:[],
-    location:null
+    showListings: false
   };
   this.handleSubmit = this.handleSubmit.bind(this);
+  this.showListings = this.showListings.bind(this);
  }
 
  handleSubmit(searchTerm){
-   // this.setState({
-   //   location: searchTerm
-   // });
-   //  axios.post(this.props.url,{
-   //   searchTerm: searchTerm
-   // })
-   //   .then((response)=>{
-   //     this.setState({
-   //       data:response.data[response.data.length-1]
-   //     });
-   //   }
-   // )
-   //   .catch(function(error){
-   //     console.log(error);
-   //   });
-   this.props.createResult(searchTerm);
+   this.props.createResult(searchTerm).then(
+     this.setState({
+        showListings: true
+      })
+    );
+
  }
 
  componentDidMount(){
    this.props.fetchResults();
+ }
+
+ showListings(){
+   if(this.state.showListings){
+     return (
+       <div>
+         <Summary data={DATA}
+                  results={this.props.results}/>
+         <Listings data={DATA} results={this.props.results}/>
+       </div>
+     );
+   } else {
+     return(
+       <div></div>
+     );
+   }
  }
  render() {
    return (
    <div>
    <h2>Search For Your Physical Therapist</h2>
    <Searchbar handleSubmit={this.handleSubmit}/>
-   <Summary data={DATA}
-            results={this.props.results}/>
-   <Listings data={DATA} results={this.props.results}/>
+   <div>
+     {this.showListings()}
+   </div>
    </div>
   );
  }
