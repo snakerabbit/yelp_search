@@ -1,4 +1,11 @@
-#search-bar {
-  border: black solid 1px;
-  padding: 20px;
+.search-bar {
+  border: lightgrey solid 1px;
+  padding: 35px;
+  display: flex;
+  flex-direction:column;
+}
+
+html {
+  color: grey ;
+  font-family: 'Muli', sans-serif;
 }

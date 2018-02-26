@@ -33,9 +33,10 @@ class Searchbar extends React.Component {
 
  render() {
    return (
-   <div id='search-bar'>
+   <div className='search-bar'>
    <form>
-     <label>Type Your Location:
+     <label>
+       <p>Type Your Location:  </p>
        <input value={this.state.searchTerm} type='text' onChange={this.handleChange} placeholder='type here'/>
      </label>
      <input type='submit' onClick={this.handleSubmit} value='Search'/>

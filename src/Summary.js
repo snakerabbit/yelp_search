@@ -76,7 +76,7 @@ number(){
 
  render() {
    return (
-   <div>
+   <div id='summary'>
    <h2>{this.searchTerm()}</h2>
    <h3>Summary: </h3>
    <p>Number of PT's in the area: {this.number()}</p>
