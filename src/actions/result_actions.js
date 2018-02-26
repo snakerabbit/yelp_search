@@ -10,8 +10,12 @@ export const fetchResults = () => dispatch => {
 };
 
 export const createResult = searchTerm => dispatch => {
-  return APIUtil.createResult(searchTerm)
-    .then(result => dispatch(receiveResults(result.data)));
+  // APIUtil.createResult(searchTerm);
+	// return APIUtil.fetchResults()
+	// .then(results => dispatch(receiveResults(results.data)));
+	return APIUtil.createResult(searchTerm).then(res =>{
+		return APIUtil.fetchResults().then(results => dispatch(receiveResults(results.data)));
+	});
 };
 
 

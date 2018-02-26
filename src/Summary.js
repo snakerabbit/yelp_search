@@ -5,6 +5,7 @@ class Summary extends React.Component {
  constructor(props) {
  super(props);
   this.state = {
+    data: Object.values(this.props.results),
     number:this.props.data.total,
     withRatings:this.numberWithRatings(),
     avgRating:this.averageRating(),
@@ -45,7 +46,7 @@ class Summary extends React.Component {
 
 
  render() {
-   console.log(this.props.results);
+   console.log(Object.values(this.props.results));
    return (
    <div>
    <h2>Summary: </h2>

@@ -24,20 +24,20 @@ export const fetchResults = () =>{
  });
 };
 
-export const fetchResult = id =>{
-  axios({
-   method: 'get',
-   url: "http://localhost:3001/api/"
- }).catch(err => console.log(err));
-
-  return axios({
-   method: 'get',
-   url: url,
-   params:{
-     id: id
-   }
- })
- .then((res) => {
-   return res;
- });
-};
+// export const fetchResult = id =>{
+//   axios({
+//    method: 'get',
+//    url: "http://localhost:3001/api/"
+//  }).catch(err => console.log(err));
+//
+//   return axios({
+//    method: 'get',
+//    url: url,
+//    params:{
+//      id: id
+//    }
+//  })
+//  .then((res) => {
+//    return res;
+//  });
+// };

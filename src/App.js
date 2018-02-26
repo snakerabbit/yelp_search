@@ -34,6 +34,7 @@ class App extends React.Component {
    //   });
    this.props.createResult(searchTerm);
  }
+
  componentDidMount(){
    this.props.fetchResults();
  }
